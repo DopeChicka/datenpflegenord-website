@@ -16,7 +16,7 @@ import { FaqSection } from "@/components/faq-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 import { WebpflichtForm } from "@/components/webpflicht-form"
-import { BetriebskiForm } from "@/components/betriebski-form"
+import { BetriebsKIForm } from "@/components/betriebski-form"
 
 export default function HomePage() {
   const [webpflichtOpen, setWebpflichtOpen] = useState(false)
@@ -41,7 +41,7 @@ export default function HomePage() {
 
       {/* Modals */}
       <WebpflichtForm open={webpflichtOpen} onOpenChange={setWebpflichtOpen} />
-      <BetriebskiForm open={betriebskiOpen} onOpenChange={setBetriebskiOpen} />
+      <BetriebsKIForm open={betriebskiOpen} onOpenChange={setBetriebskiOpen} />
     </main>
   )
 }

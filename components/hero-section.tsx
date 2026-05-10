@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Logo } from "@/components/logo"
 import { DomainChecker } from "@/components/domain-checker"
 import { KIProcessForm } from "@/components/ki-process-form"
 import { ArrowRight, ShieldCheck, CheckCircle2, BrainCircuit } from "lucide-react"
@@ -14,20 +13,53 @@ export function HeroSection() {
 
   return (
     <section className="relative bg-background py-16 md:py-24 lg:py-28 overflow-hidden">
-      {/* Left hero column: large logo watermark anchored bottom-left, hidden on mobile */}
-      <div
-        className="hidden md:block absolute bottom-0 left-0 w-[55%] lg:w-[48%] max-w-[680px] aspect-square pointer-events-none select-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute bottom-[-10%] left-[-10%] w-full h-full opacity-[0.055]">
-          <Logo variant="watermark" />
-        </div>
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left: Copy */}
-          <div className="flex flex-col gap-6">
+          <div className="relative flex flex-col gap-6">
+            {/* Technical grid background — data/audit atmosphere, desktop only, strictly behind content */}
+            <svg
+              className="hidden md:block absolute inset-0 w-full h-full pointer-events-none select-none -z-10"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <pattern id="grid-sm" width="28" height="28" patternUnits="userSpaceOnUse">
+                  <path d="M 28 0 L 0 0 0 28" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-border" />
+                </pattern>
+                <pattern id="grid-lg" width="112" height="112" patternUnits="userSpaceOnUse">
+                  <rect width="112" height="112" fill="url(#grid-sm)" />
+                  <path d="M 112 0 L 0 0 0 112" fill="none" stroke="currentColor" strokeWidth="1" className="text-border" />
+                </pattern>
+              </defs>
+
+              {/* Base grid */}
+              <rect width="100%" height="100%" fill="url(#grid-lg)" opacity="0.45" />
+
+              {/* Diagonal data-flow lines */}
+              <line x1="0" y1="60%" x2="35%" y2="100%" stroke="currentColor" strokeWidth="0.75" className="text-accent" opacity="0.1" />
+              <line x1="20%" y1="0" x2="80%" y2="100%" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.06" />
+              <line x1="55%" y1="0" x2="100%" y2="55%" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.05" />
+
+              {/* Horizontal data-level lines */}
+              <line x1="0" y1="33%" x2="100%" y2="33%" stroke="currentColor" strokeWidth="0.5" className="text-accent" opacity="0.08" />
+              <line x1="0" y1="66%" x2="100%" y2="66%" stroke="currentColor" strokeWidth="0.5" className="text-accent" opacity="0.06" />
+
+              {/* Node dots */}
+              <circle cx="28%" cy="33%" r="2.5" fill="currentColor" className="text-accent" opacity="0.15" />
+              <circle cx="56%" cy="33%" r="1.5" fill="currentColor" className="text-primary" opacity="0.1" />
+              <circle cx="84%" cy="33%" r="2" fill="currentColor" className="text-accent" opacity="0.12" />
+              <circle cx="14%" cy="66%" r="1.5" fill="currentColor" className="text-primary" opacity="0.08" />
+              <circle cx="42%" cy="66%" r="2.5" fill="currentColor" className="text-accent" opacity="0.13" />
+              <circle cx="70%" cy="66%" r="2" fill="currentColor" className="text-primary" opacity="0.08" />
+
+              {/* Connector lines between nodes */}
+              <line x1="28%" y1="33%" x2="42%" y2="66%" stroke="currentColor" strokeWidth="0.75" className="text-accent" opacity="0.1" />
+              <line x1="56%" y1="33%" x2="42%" y2="66%" stroke="currentColor" strokeWidth="0.75" className="text-accent" opacity="0.08" />
+              <line x1="56%" y1="33%" x2="70%" y2="66%" stroke="currentColor" strokeWidth="0.75" className="text-accent" opacity="0.08" />
+              <line x1="84%" y1="33%" x2="70%" y2="66%" stroke="currentColor" strokeWidth="0.75" className="text-accent" opacity="0.08" />
+            </svg>
             <div className="flex flex-col gap-1">
               <Badge variant="secondary" className="w-fit text-xs font-medium tracking-wide uppercase">
                 DatenpflegeNord

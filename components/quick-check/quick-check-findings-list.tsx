@@ -39,9 +39,29 @@ export function QuickCheckFindingsList({ findings, limit = 5 }: QuickCheckFindin
                     {sev.label}
                   </span>
                 </div>
-                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                <p className="text-[11px] text-muted-foreground leading-relaxed mb-1">
                   {f.description}
                 </p>
+                {f.recommendation && (
+                  <p className="text-[11px] text-foreground/80 leading-relaxed">
+                    <span className="font-medium">Empfehlung:</span> {f.recommendation}
+                  </p>
+                )}
+                {f.evidence && (
+                  <div className="mt-2 p-2 rounded bg-muted/50 text-[10px] text-muted-foreground font-mono">
+                    {f.evidence.selector && (
+                      <p>Selektor: {f.evidence.selector}</p>
+                    )}
+                    {f.evidence.snippet && (
+                      <p className="truncate">Snippet: {f.evidence.snippet}</p>
+                    )}
+                  </div>
+                )}
+                {f.legalDisclaimer && (
+                  <p className="text-[10px] text-muted-foreground italic mt-1">
+                    {f.legalDisclaimer}
+                  </p>
+                )}
               </div>
             </div>
           )

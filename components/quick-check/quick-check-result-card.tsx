@@ -19,12 +19,11 @@ export function QuickCheckResultCard({ result }: QuickCheckResultCardProps) {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Header: score + domain + summary pills */}
+      {/* Header: domain + summary pills */}
       <Card>
         <CardContent className="pt-5 pb-5">
-          <div className="flex items-start gap-4">
-            <QuickCheckScoreGrid score={result.score} />
-            <div className="flex-1 min-w-0">
+          <div className="flex flex-col gap-3">
+            <div>
               <p className="text-xs text-muted-foreground mb-0.5">Geprüfte Domain</p>
               <p className="text-sm font-semibold text-foreground truncate mb-1">
                 {result.normalizedUrl}
@@ -43,6 +42,13 @@ export function QuickCheckResultCard({ result }: QuickCheckResultCardProps) {
               <QuickCheckSummaryBadges summary={result.summary} />
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* Score Grid */}
+      <Card>
+        <CardContent className="pt-5 pb-5">
+          <QuickCheckScoreGrid score={result.score} />
         </CardContent>
       </Card>
 

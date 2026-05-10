@@ -6,7 +6,7 @@ export function QuickCheckMissingConfigState() {
     <Alert role="alert">
       <Settings2 className="w-4 h-4" aria-hidden="true" />
       <AlertDescription className="text-sm">
-        Der Prüfdienst ist aktuell nicht konfiguriert. Bitte kontaktieren Sie uns direkt.
+        Schnellcheck ist aktuell noch nicht konfiguriert.
       </AlertDescription>
     </Alert>
   )

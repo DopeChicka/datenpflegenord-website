@@ -4,17 +4,12 @@ import { useState } from "react"
 import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { UIState, ScanResult, getMockResult } from "@/lib/quick-check-types"
+import { UIState, ScanResult } from "@/lib/quick-check-types"
+import { QuickCheckError, quickCheck } from "@/lib/nordaudit-api"
 import { QuickCheckResultCard } from "@/components/quick-check/quick-check-result-card"
 import { QuickCheckErrorState } from "@/components/quick-check/quick-check-error-state"
 import { QuickCheckLoadingState } from "@/components/quick-check/quick-check-loading-state"
 import { QuickCheckMissingConfigState } from "@/components/quick-check/quick-check-missing-config-state"
-
-// ---------------------------------------------------------------------------
-// When the real API is ready, replace getMockResult() with:
-//   import { quickCheck } from "@/lib/nordaudit-api"
-// and call it in handleCheck() instead of getMockResult(trimmed).
-// ---------------------------------------------------------------------------
 
 function validateDomain(value: string): boolean {
   const clean = value.replace(/^https?:\/\//, "").replace(/\/$/, "")
@@ -44,15 +39,18 @@ export function DomainChecker() {
     setResult(null)
 
     try {
-      // TODO: replace with → const data = await quickCheck(trimmed)
-      // 503 from the real endpoint should call: setState("missing-config"); return
-      const data = getMockResult(trimmed)
+      const data = await quickCheck(trimmed)
       setResult(data)
       setState("result")
-    } catch {
-      setErrorMessage(
-        "Die Prüfung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut.",
-      )
+    } catch (error) {
+      if (error instanceof QuickCheckError && error.code === "missing-config") {
+        setState("missing-config")
+        return
+      }
+
+      const fallbackMessage =
+        "Die Prüfung konnte nicht abgeschlossen werden. Bitte versuchen Sie es erneut."
+      setErrorMessage(error instanceof Error ? error.message || fallbackMessage : fallbackMessage)
       setState("error")
     }
   }
@@ -81,7 +79,7 @@ export function DomainChecker() {
         </span>
       </div>
       <p className="text-base font-semibold text-foreground mb-1">
-        BFSG Schnellcheck — Website automatisiert prüfen
+        BFSG Schnellcheck - Website automatisiert prüfen
       </p>
       <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
         Technische Vorprüfung für Barrierefreiheit, Technik, Datenschutz-Hinweise und SEO.
@@ -107,7 +105,7 @@ export function DomainChecker() {
           {state === "loading" ? (
             <>
               <Loader2 className="mr-2 w-4 h-4 animate-spin" aria-hidden="true" />
-              Prüfe…
+              Prüfe...
             </>
           ) : state === "result" ? (
             "Neu prüfen"
@@ -124,7 +122,7 @@ export function DomainChecker() {
       )}
 
       <p className="text-[11px] text-muted-foreground leading-relaxed mb-5">
-        Automatisierte Vorprüfung — keine Rechtsberatung, keine behördliche Zertifizierung.
+        Automatisierte Vorprüfung - keine Rechtsberatung, keine behördliche Zertifizierung.
       </p>
 
       {/* State panels */}

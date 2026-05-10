@@ -14,20 +14,19 @@ export function HeroSection() {
 
   return (
     <section className="relative bg-background py-16 md:py-24 lg:py-28 overflow-hidden">
-      {/* Left hero column: large logo watermark anchored bottom-left, hidden on mobile */}
-      <div
-        className="hidden md:block absolute bottom-0 left-0 w-[55%] lg:w-[48%] max-w-[680px] aspect-square pointer-events-none select-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute bottom-[-10%] left-[-10%] w-full h-full opacity-[0.055]">
-          <Logo variant="watermark" />
-        </div>
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left: Copy */}
-          <div className="flex flex-col gap-6">
+          <div className="relative flex flex-col gap-6">
+            {/* Watermark: centered behind left text column, desktop only */}
+            <div
+              className="hidden md:block absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+              aria-hidden="true"
+            >
+              <div className="w-[110%] aspect-square opacity-[0.06] translate-y-4">
+                <Logo variant="watermark" />
+              </div>
+            </div>
             <div className="flex flex-col gap-1">
               <Badge variant="secondary" className="w-fit text-xs font-medium tracking-wide uppercase">
                 DatenpflegeNord

@@ -14,14 +14,12 @@ export function HeroSection() {
 
   return (
     <section className="relative bg-background py-16 md:py-24 lg:py-28 overflow-hidden">
-      {/* Watermark background logos - left and right, subtle, 5-8% opacity */}
-      <div className="absolute inset-0 flex items-center justify-between pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        {/* Left side logo watermark */}
-        <div className="w-[500px] h-[500px] md:w-[650px] md:h-[650px] lg:w-[800px] lg:h-[800px] opacity-[0.06] -translate-y-12 -translate-x-1/4">
-          <Logo variant="watermark" />
-        </div>
-        {/* Right side logo watermark */}
-        <div className="w-[500px] h-[500px] md:w-[650px] md:h-[650px] lg:w-[800px] lg:h-[800px] opacity-[0.06] -translate-y-12 translate-x-1/4">
+      {/* Left hero column: large logo watermark anchored bottom-left, hidden on mobile */}
+      <div
+        className="hidden md:block absolute bottom-0 left-0 w-[55%] lg:w-[48%] max-w-[680px] aspect-square pointer-events-none select-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute bottom-[-10%] left-[-10%] w-full h-full opacity-[0.055]">
           <Logo variant="watermark" />
         </div>
       </div>

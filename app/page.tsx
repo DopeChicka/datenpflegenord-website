@@ -15,7 +15,7 @@ import { TrustSection } from "@/components/trust-section"
 import { FaqSection } from "@/components/faq-section"
 import { CtaSection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
-import { WebpflichtForm } from "@/components/webpflicht-form"
+import { WebPflichtForm } from "@/components/webpflicht-form"
 import { BetriebsKIForm } from "@/components/betriebski-form"
 
 export default function HomePage() {
@@ -40,7 +40,7 @@ export default function HomePage() {
       <Footer />
 
       {/* Modals */}
-      <WebpflichtForm open={webpflichtOpen} onOpenChange={setWebpflichtOpen} />
+      <WebPflichtForm open={webpflichtOpen} onOpenChange={setWebpflichtOpen} />
       <BetriebsKIForm open={betriebskiOpen} onOpenChange={setBetriebskiOpen} />
     </main>
   )

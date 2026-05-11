@@ -1,5 +1,10 @@
 # datenpflegenord-website
 
+## Domain Setup
+
+- Custom Domain: `datenpflegenord.de`
+- Additional Domain: `www.datenpflegenord.de`
+
 ## Frontend API Environment Configuration
 
 ### Local ENV

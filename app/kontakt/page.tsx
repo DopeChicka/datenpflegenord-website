@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, Mail, Phone } from "lucide-react"
 
 const topics = [
   "Sichtbarkeits-Check",
@@ -72,9 +72,39 @@ export default function KontaktPage() {
                   </p>
                 </div>
 
+                {/* Direct contact options */}
+                <div className="flex flex-col gap-3">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                    Direkt kontaktieren
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    <a
+                      href="mailto:TODO@datenpflegenord.de"
+                      className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5 hover:border-accent/40 transition-colors"
+                    >
+                      <Mail className="w-4 h-4 text-accent shrink-0" aria-hidden="true" />
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-xs text-muted-foreground">E-Mail</span>
+                        <span className="text-sm font-medium text-foreground">
+                          TODO@datenpflegenord.de
+                        </span>
+                      </div>
+                    </a>
+                    <div className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3.5">
+                      <Phone className="w-4 h-4 text-accent shrink-0" aria-hidden="true" />
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-xs text-muted-foreground">Telefon</span>
+                        <span className="text-sm font-medium text-foreground">
+                          TODO
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="rounded-xl border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
-                  Hinweis: Die Formularanbindung wird noch eingerichtet. Bitte senden Sie Ihre
-                  Anfrage nach dem Absenden zusätzlich per E-Mail.
+                  Die Formularanbindung wird noch eingerichtet. Bis dahin bitte direkt per
+                  E-Mail kontaktieren.
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">

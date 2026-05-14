@@ -10,11 +10,11 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'DatenpflegeNord | BFSG Website Audit & KI Prozessautomatisierung für KMU',
+  title: 'DatenpflegeNord | Website, Sichtbarkeit und KI für Schleswig-Holstein',
   description:
-    'NordAudit Portal: BFSG Website Audit, Barrierefreiheitsprüfung und Monitoring für KMU. KI Prozessautomatisierung: Individuelle KI-Agenten und Workflow-Automatisierung für wiederkehrende Unternehmensaufgaben.',
+    'DatenpflegeNord hilft Unternehmen in Schleswig-Holstein mit Sichtbarkeits-Check, technischem Web-Check, KI-Lösungen und monatlichem Audit-Check.',
   generator: 'v0.app',
-  keywords: 'BFSG Website Audit, BFSG Schnellcheck, Barrierefreiheitsprüfung Website, Website Audit für KMU, BFSG Monitoring, WCAG Prüfung, KI Prozessautomatisierung, KI Agenten für Unternehmen, Workflow Automatisierung',
+  keywords: 'Sichtbarkeits-Check, technischer Web-Check, KI-Lösungen, monatlicher Audit-Check, Website Schleswig-Holstein, Google Sichtbarkeit, BFSG, Barrierefreiheit, KI Büroprozesse, Lübeck, Kiel, Flensburg',
 }
 
 export const viewport = {

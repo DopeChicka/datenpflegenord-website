@@ -1,14 +1,32 @@
 import Link from "next/link"
 import { Logo } from "@/components/logo"
 
-const footerLinks = [
+const footerCols = [
   {
-    heading: "Produkte",
+    heading: "Leistungen",
     links: [
-      { label: "NordAudit Portal", href: "#nordaudit" },
-      { label: "KI Prozessautomatisierung", href: "#ki-automatisierung" },
-      { label: "Kundenportal", href: "#portal" },
-      { label: "Preise", href: "#pakete" },
+      { label: "Sichtbarkeits-Check", href: "/sichtbarkeits-check" },
+      { label: "Technischer Web-Check", href: "/technischer-web-check" },
+      { label: "KI-Lösungen", href: "/ki-loesungen" },
+      { label: "Monatlicher Audit-Check", href: "/monatlicher-audit-check" },
+      { label: "Portal", href: "/portal" },
+    ],
+  },
+  {
+    heading: "Regionen",
+    links: [
+      { label: "Lübeck", href: "/branchen" },
+      { label: "Kiel", href: "/branchen" },
+      { label: "Flensburg", href: "/branchen" },
+      { label: "Neumünster", href: "/branchen" },
+      { label: "Alle Regionen", href: "/branchen" },
+    ],
+  },
+  {
+    heading: "Unternehmen",
+    links: [
+      { label: "Branchen", href: "/branchen" },
+      { label: "Kontakt", href: "/kontakt" },
     ],
   },
   {
@@ -24,21 +42,23 @@ export function Footer() {
   return (
     <footer className="bg-navy text-navy-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="sm:col-span-2">
             <div className="mb-4">
               <Logo variant="footer" showLabel={true} />
             </div>
-            <p className="text-sm text-navy-foreground/60 leading-relaxed mb-4">
-              Websites prüfen. Unternehmensprozesse mit KI automatisieren.
+            <p className="text-sm text-navy-foreground/60 leading-relaxed mb-3">
+              Mehr Sichtbarkeit. Weniger Website-Risiko. Weniger Büroarbeit.
             </p>
-            <p className="text-xs text-navy-foreground/50 leading-relaxed">
-              Digitale Prüf- und KI-Systeme für deutsche KMU.
+            <p className="text-xs text-navy-foreground/40 leading-relaxed">
+              DatenpflegeNord bietet technische und organisatorische Prüfung,
+              Umsetzungshilfe und digitale Prozessunterstützung. Keine Rechtsberatung,
+              keine Steuerberatung und keine behördliche Zertifizierung.
             </p>
           </div>
 
-          {footerLinks.map((col) => (
+          {footerCols.map((col) => (
             <div key={col.heading}>
               <p className="text-xs font-semibold uppercase tracking-widest text-navy-foreground/50 mb-4">
                 {col.heading}

@@ -1,18 +1,93 @@
+import type { Metadata } from "next"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+  title: "Impressum | DatenpflegeNord",
+  description: "Impressum von DatenpflegeNord.",
+}
+
 export default function ImpressumPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
-          Vorläufiger Platzhalter
-        </p>
-        <h1 className="text-3xl font-semibold mb-5">Impressum</h1>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-          Diese Seite ist ein vorläufiger Platzhalter für den Domain-Livegang.
-        </p>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Es wurden bewusst keine rechtlichen Angaben und keine Unternehmensdaten ergänzt.
-        </p>
-      </section>
-    </main>
+    <>
+      <Header />
+      <main className="min-h-screen bg-background">
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+            Rechtliches
+          </p>
+          <h1 className="text-3xl font-bold text-foreground mb-8">Impressum</h1>
+
+          <div className="flex flex-col gap-8 text-sm text-foreground leading-relaxed">
+
+            {/* Angaben gemäß § 5 TMG */}
+            <div className="flex flex-col gap-3 rounded-xl border border-amber-200 bg-amber-50 p-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-amber-700">
+                TODO — Pflichtangaben noch nicht eingetragen
+              </p>
+              <p className="text-amber-800 text-sm leading-relaxed">
+                Die folgenden Felder sind Platzhalter und müssen vor dem Livegang mit den echten
+                Unternehmensdaten ausgefüllt werden. Kein juristischer Text — nur strukturierte
+                Pflichtangaben gemäß § 5 TMG.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h2 className="font-semibold text-base text-foreground">
+                Angaben gemäß § 5 TMG
+              </h2>
+              <p className="text-muted-foreground">
+                <span className="block font-medium text-foreground">TODO: Unternehmensname</span>
+                TODO: Rechtsform (z. B. Einzelunternehmen, GbR, UG, GmbH)
+              </p>
+              <p className="text-muted-foreground">
+                <span className="block font-medium text-foreground">Adresse</span>
+                TODO: Straße und Hausnummer<br />
+                TODO: PLZ Ort<br />
+                Deutschland
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h2 className="font-semibold text-base text-foreground">Kontakt</h2>
+              <p className="text-muted-foreground">
+                <span className="block">Telefon: TODO</span>
+                <span className="block">E-Mail: TODO@datenpflegenord.de</span>
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h2 className="font-semibold text-base text-foreground">
+                Umsatzsteuer-Identifikationsnummer
+              </h2>
+              <p className="text-muted-foreground">
+                TODO: Umsatzsteuer-ID gemäß § 27a UStG (sofern vorhanden)
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h2 className="font-semibold text-base text-foreground">
+                Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV
+              </h2>
+              <p className="text-muted-foreground">
+                TODO: Vor- und Nachname<br />
+                TODO: Adresse (wie oben oder abweichend)
+              </p>
+            </div>
+
+            <div className="border-t border-border pt-6 flex flex-col gap-2">
+              <h2 className="font-semibold text-base text-foreground">Haftungshinweis</h2>
+              <p className="text-muted-foreground">
+                DatenpflegeNord bietet technische und organisatorische Prüfung,
+                Umsetzungshilfe und digitale Prozessunterstützung. Keine Rechtsberatung,
+                keine Steuerberatung und keine behördliche Zertifizierung.
+              </p>
+            </div>
+
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }

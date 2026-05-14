@@ -79,10 +79,10 @@ export function DomainChecker() {
         </span>
       </div>
       <p className="text-base font-semibold text-foreground mb-1">
-        BFSG Schnellcheck - Website automatisiert prüfen
+        Website-Schnellcheck
       </p>
       <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
-        Technische Vorprüfung für Barrierefreiheit, Technik, Datenschutz-Hinweise und SEO.
+        Vorprüfung zu Technik, Ladezeit, Datenschutz-Hinweisen, BFSG-Relevanz und SEO.
       </p>
 
       {/* Input row */}

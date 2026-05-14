@@ -133,7 +133,7 @@ export default function KiLoesungenPage() {
               <div className="flex items-center gap-2 mb-5">
                 <Users className="w-4 h-4 text-accent" aria-hidden="true" />
                 <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  Fur wen geeignet
+                  Für wen geeignet
                 </h2>
               </div>
               <ul className="flex flex-col gap-3">
